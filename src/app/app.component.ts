@@ -1,4 +1,4 @@
-import { NgForOf } from '@angular/common';
+// import { NgForOf } from '@angular/common';
 import { Component } from '@angular/core';
 import { Satellite } from './satellite'; 
 
@@ -22,8 +22,10 @@ export class AppComponent {
           let fetchedSatellites = data.satellites;
           // TODO: loop over satellites
             for(let i = 0; i<fetchedSatellites.length; i++ ){
-              new Satellite(fetchedSatellites[i].name, fetchedSatellites[i].type, fetchedSatellites[i].launchDate, fetchedSatellites[i].orbitType, fetchedSatellites[i].operational);
-              this.sourceList.push(fetchedSatellites[i]);
+
+              let satellite =  new Satellite(fetchedSatellites[i].name, fetchedSatellites[i].type, fetchedSatellites[i].launchDate, fetchedSatellites[i].orbitType, fetchedSatellites[i].operational);
+
+              this.sourceList.push(satellite);
             }
           // TODO: create a Satellite object using new Satellite(fetchedSatellites[i].name, fetchedSatellites[i].type, fetchedSatellites[i].launchDate, fetchedSatellites[i].orbitType, fetchedSatellites[i].operational);
 
