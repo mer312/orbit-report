@@ -33,8 +33,6 @@ satCounter(): number[] {
       counter[4]+=1
     }else if(this.satellites[i].type.toLowerCase() === 'telescope' ){
       counter[5]+=1
-    }else{
-      counter[6]+=1;
     }
     
     } 
