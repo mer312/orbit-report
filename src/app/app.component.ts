@@ -25,7 +25,12 @@ export class AppComponent {
           // TODO: loop over satellites
             for(let i = 0; i<fetchedSatellites.length; i++ ){
           // TODO: create a Satellite object using new Satellite(fetchedSatellites[i].name, fetchedSatellites[i].type, fetchedSatellites[i].launchDate, fetchedSatellites[i].orbitType, fetchedSatellites[i].operational);
-              let satellite =  new Satellite(fetchedSatellites[i].name, fetchedSatellites[i].type, fetchedSatellites[i].launchDate, fetchedSatellites[i].orbitType, fetchedSatellites[i].operational);
+              let satellite =  new Satellite(
+                fetchedSatellites[i].name,
+                fetchedSatellites[i].type,
+                fetchedSatellites[i].launchDate,
+                fetchedSatellites[i].orbitType,
+                fetchedSatellites[i].operational);
           // TODO: add the new Satellite object to sourceList using: this.sourceList.push(satellite);
               this.sourceList.push(satellite);
             }
@@ -42,8 +47,11 @@ export class AppComponent {
     searchTerm = searchTerm.toLowerCase();
     for(let i=0; i < this.sourceList.length; i++) {
       let name = this.sourceList[i].name.toLowerCase();
+      let type = this.sourceList[i].type.toLowerCase();
       if (name.indexOf(searchTerm) >= 0) {
-          matchingSatellites.push(this.sourceList[i]);
+          matchingSatellites.push(this.sourceList[i]);    
+      } if (type.indexOf(searchTerm)>=0 && !matchingSatellites.includes(this.sourceList[i])){
+        matchingSatellites.push(this.sourceList[i]);
       }
     }
     // assign this.displayList to be the array of matching satellites
