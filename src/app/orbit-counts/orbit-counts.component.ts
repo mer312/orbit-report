@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { count } from 'console';
+// import { count } from 'console';
 import { Satellite } from '../satellite';
 
 @Component({
@@ -34,7 +34,7 @@ satCounter(): number[] {
     }else if(this.satellites[i].type.toLowerCase() === 'telescope' ){
       counter[5]+=1
     }else{
-      counter[6]+=1
+      counter[6]+=1;
     }
     
     } 
